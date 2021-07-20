@@ -1,0 +1,3 @@
+cython
+jkq.qcec
+qiskit
