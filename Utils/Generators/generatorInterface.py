@@ -13,7 +13,7 @@ class GeneratorInterface:
         self.path_destiny = None
 
     def create_folder(self):
-        self.path_destiny = self.path_base + self.folder_destiny
+        self.path_destiny = self.path_base + self.folder_destiny + "/"
         if not os.path.exists(self.path_destiny):
             os.makedirs(self.path_destiny)
 
@@ -22,7 +22,7 @@ class GeneratorInterface:
             return
         self.circuit_name = self.circuits_names[self.index]
         self.index = self.index + 1
-        with open(self.circuit_name, "r") as f:
+        with open(self.path_original + self.circuit_name, "r") as f:
             self.circuit = f.readlines()
 
     def has_next_circuit(self):
@@ -30,5 +30,30 @@ class GeneratorInterface:
 
     def generate(self):
         self.create_folder()
-        # while self.has_next_circuit():
-        #    self.read_next_circuit()
+        while self.has_next_circuit():
+            self.read_next_circuit()
+            is_head = True
+            circuit_length = len(self.circuit) - 1
+            self.new_circuit()
+            with open(self.path_destiny + self.circuit_name, "w") as f:
+                for line in self.circuit:
+                    if is_head:
+                        circuit_length = circuit_length - 1
+                        f.write(line)
+                        if line.strip("\n") == ".begin":
+                            is_head = False
+                    else:
+                        if line.strip("\n") == ".end":
+                            f.write(line)
+                            break
+                        if not self.has_to_be_removed(line, circuit_length):
+                            f.write(self.modify_line(line, circuit_length))
+
+    def has_to_be_removed(self, line, circuit_length):
+        return False
+
+    def modify_line(self, line, circuit_length):
+        return line
+
+    def new_circuit(self):
+        pass

@@ -6,7 +6,7 @@ import json
 # Define constants
 PATH_BASE = "../Circuits/"
 PATH_ORIGINAL = "original"
-PATH_TEST = ["neq1"]
+PATH_TEST = ["neq1", "neq2"]
 
 # Get the names of the circuits
 path_original = PATH_BASE + PATH_ORIGINAL

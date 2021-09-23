@@ -98,7 +98,6 @@ t2 x27 x28
 t3 x2 x25 x28
 t3 x2 x27 x28
 t2 x19 x29
-t3 x1 x18 x29
 t3 x1 x19 x29
 t2 x29 x26
 t3 x4 x26 x29
@@ -106,11 +105,11 @@ t2 x29 x27
 t3 x2 x27 x29
 t1 x29
 t3 x3 x29 x28
+t3 x3 x28 x29
 t3 x1 x19 x30
 t3 x4 x30 x31
 t3 x2 x31 x32
 t3 x3 x32 x33
-t1 x8
 t1 x16
 t1 x29
 .end

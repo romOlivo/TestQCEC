@@ -44,7 +44,6 @@ t9 x0 x2 x3 x5 x6 x7 x8 x9 f0
 t9 x0 x2 x3 x5 x6 x7 x8 x9 f1
 t9 x0 x1 x3 x4 x5 x7 x8 x9 f4
 t9 x0 x1 x3 x4 x5 x7 x8 x9 f7
-t1 x5
 t6 x1 x4 x5 x8 x9 f4
 t6 x1 x4 x5 x8 x9 f10
 t7 x0 x1 x3 x4 x5 x8 f7
@@ -84,11 +83,10 @@ t10 x0 x1 x2 x3 x4 x5 x6 x7 x9 f2
 t10 x0 x1 x2 x3 x4 x5 x6 x7 x9 f9
 t1 x8
 t6 x1 x4 x5 x7 x8 f3
+t6 x1 x4 x5 x7 x8 f4
 t7 x1 x4 x5 x7 x8 x9 f2
 t7 x1 x4 x5 x7 x8 x9 f3
 t7 x1 x4 x5 x7 x8 x9 f4
-t7 x1 x4 x5 x7 x8 x9 f10
-t7 x0 x2 x3 x6 x7 x8 f0
 t7 x0 x2 x3 x6 x7 x8 f8
 t7 x0 x2 x3 x6 x7 x8 f11
 .end

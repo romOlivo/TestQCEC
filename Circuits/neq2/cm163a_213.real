@@ -26,13 +26,11 @@ t3 x1 x9 f6
 t2 x13 f5
 t4 x9 x11 x12 f3
 t6 x1 x2 x3 x4 x9 f6
-t8 x5 x6 x7 x8 x9 x11 x12 f2
 t8 x5 x6 x7 x8 x9 x11 x12 f3
 t1 x10
 t4 x0 x10 x11 f8
 t4 x0 x10 x11 f9
 t9 x0 x2 x3 x4 x9 x10 x11 x12 f8
-t9 x0 x2 x3 x4 x9 x10 x11 x12 f10
 t5 x0 x1 x10 x11 f11
 t10 x0 x1 x2 x3 x4 x9 x10 x11 x12 f11
 t5 x0 x10 x11 x12 f10

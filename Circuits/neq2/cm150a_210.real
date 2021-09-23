@@ -16,7 +16,6 @@ t2 x20 f0
 t1 x20
 t1 x15
 t7 x15 x16 x17 x18 x19 x20 f0
-t1 x7
 t7 x7 x16 x17 x18 x19 x20 f0
 t6 x7 x16 x17 x18 x20 f0
 t1 x18
@@ -34,7 +33,6 @@ t7 x5 x16 x17 x18 x19 x20 f0
 t6 x5 x16 x17 x18 x20 f0
 t1 x18
 t1 x9
-t7 x9 x16 x17 x18 x19 x20 f0
 t1 x1
 t7 x1 x16 x17 x18 x19 x20 f0
 t6 x1 x16 x17 x18 x20 f0
@@ -53,11 +51,11 @@ t1 x2
 t7 x2 x16 x17 x18 x19 x20 f0
 t6 x2 x16 x17 x18 x20 f0
 t1 x18
+t1 x17
 t1 x12
 t7 x12 x16 x17 x18 x19 x20 f0
 t1 x4
 t7 x4 x16 x17 x18 x19 x20 f0
-t6 x4 x16 x17 x18 x20 f0
 t1 x18
 t1 x8
 t7 x8 x16 x17 x18 x19 x20 f0

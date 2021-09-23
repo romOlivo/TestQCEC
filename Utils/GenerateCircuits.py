@@ -10,4 +10,6 @@ PATH_ORIGINAL = "original"
 path_original = PATH_BASE + PATH_ORIGINAL
 circuits_names = [f for f in listdir(path_original) if isfile(join(path_original, f))]
 
-RandomlyRemoveGate(circuits_names, PATH_ORIGINAL).generate()
+# Generate Circuits
+RandomlyRemoveGate(circuits_names, PATH_ORIGINAL, name="neq1").generate()
+RandomlyRemoveGate(circuits_names, PATH_ORIGINAL, name="neq2", n=3).generate()
