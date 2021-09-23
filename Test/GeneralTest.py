@@ -1,6 +1,6 @@
 from jkq.qcec import Configuration, Strategy, verify
-from os import listdir
 from os.path import isfile, join
+from os import listdir
 import numpy as np
 import pandas as pd
 import json
@@ -13,11 +13,12 @@ def default_config():
 
 
 # Define constants
+COLUMNS_NAMES = ['circuit', 'default']
+PATH_TEST = ["neq1", "neq2"]
 PATH_BASE = "../Circuits/"
 PATH_ORIGINAL = "original"
-PATH_TEST = ["neq1", "neq2"]
 CONFIGS = [default_config]
-COLUMNS_NAMES = ['circuit', 'default']
+
 
 # Get the names of the circuits
 path_original = PATH_BASE + PATH_ORIGINAL
@@ -25,12 +26,18 @@ circuits_names = [f for f in listdir(path_original) if isfile(join(path_original
 total_circuits = len(circuits_names)
 database = [None for _ in range(len(PATH_TEST))]
 
+# Setting up the data gathering
 results = None
 index_database = 0
+
+# Do the tests
 for path_test in PATH_TEST:
+
+    # Data Gathering
     results = np.empty([total_circuits, len(COLUMNS_NAMES)], dtype=object)
     results[:, 0] = circuits_names
     index_circuit = 0
+
     for circuit_name in circuits_names:
 
         # Calculate circuits paths
@@ -54,6 +61,7 @@ for path_test in PATH_TEST:
 
         index_circuit = index_circuit + 1
 
+    # Create and order the data
     database[index_database] = pd.DataFrame(results, columns=COLUMNS_NAMES)
     index_database = index_database + 1
 
