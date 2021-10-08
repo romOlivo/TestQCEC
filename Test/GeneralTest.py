@@ -6,18 +6,30 @@ import pandas as pd
 import json
 
 
-def default_config():
+def proportional_config():
     m_config = Configuration()
-    m_config.strategy = Strategy.compilationflow
+    m_config.strategy = Strategy.proportional
+    return m_config
+
+
+def naive_config():
+    m_config = Configuration()
+    m_config.strategy = Strategy.naive
     return m_config
 
 
 # Define constants
-COLUMNS_NAMES = ['circuit', 'default']
-PATH_TEST = ["neq1", "neq2"]
+COLUMNS_NAMES = ['circuit', 'proportional', 'naive', 'nodes_proportional', 'nodes_naive']
+PATH_TEST = ["remove1"]
+EXTENSION_MAP = {
+    "transpiled": "_transpiled.qasm",
+    "remove1": "_transpiled_removed_1_7.qasm",
+    "remove3": "_transpiled_removed_3_7.qasm",
+}
 PATH_BASE = "../Circuits/"
 PATH_ORIGINAL = "original"
-CONFIGS = [default_config]
+PATH_DATABASE = "../Results/"
+CONFIGS = [proportional_config, naive_config]
 
 
 # Get the names of the circuits
@@ -31,6 +43,7 @@ results = None
 index_database = 0
 
 # Do the tests
+print("Starting Tests")
 for path_test in PATH_TEST:
 
     # Data Gathering
@@ -42,7 +55,7 @@ for path_test in PATH_TEST:
 
         # Calculate circuits paths
         path_original_circuit = path_original + "/" + circuit_name
-        path_compiled_circuit = PATH_BASE + path_test + "/" + circuit_name
+        path_compiled_circuit = PATH_BASE + path_test + "/" + circuit_name[:-5] + EXTENSION_MAP[path_test]
 
         # Set index for inserting data
         index_config = 1
@@ -56,6 +69,9 @@ for path_test in PATH_TEST:
             result = verify(path_original_circuit, path_compiled_circuit, config)
             result = json.loads(str(result))
             results[index_circuit, index_config] = result["statistics"]["verification_time"]
+            results[index_circuit, index_config + len(CONFIGS)] = result["statistics"]["max_nodes"]
+
+            print("Verified")
 
             index_config = index_config + 1
 
@@ -65,6 +81,8 @@ for path_test in PATH_TEST:
     database[index_database] = pd.DataFrame(results, columns=COLUMNS_NAMES)
     index_database = index_database + 1
 
-print(database[0])
-print("--------------------------------------------------")
-print(database[1])
+
+for i in range(len(database)):
+    data = database[i]
+    path_test = PATH_TEST[i]
+    data.to_csv(PATH_DATABASE + path_test + '.csv', index=False)
