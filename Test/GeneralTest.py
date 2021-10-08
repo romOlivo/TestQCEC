@@ -18,9 +18,16 @@ def naive_config():
     return m_config
 
 
+def lookahead_config():
+    m_config = Configuration()
+    m_config.strategy = Strategy.lookahead
+    return m_config
+
+
 # Define constants
-COLUMNS_NAMES = ['circuit', 'proportional', 'naive', 'nodes_proportional', 'nodes_naive']
-PATH_TEST = ["remove1"]
+COLUMNS_NAMES = ['circuit', 'proportional', 'naive', 'lookahead',
+                 'nodes_proportional', 'nodes_naive', 'nodes_lookahead']
+PATH_TEST = ["transpiled", "remove1", "remove3"]
 EXTENSION_MAP = {
     "transpiled": "_transpiled.qasm",
     "remove1": "_transpiled_removed_1_7.qasm",
@@ -29,7 +36,7 @@ EXTENSION_MAP = {
 PATH_BASE = "../Circuits/"
 PATH_ORIGINAL = "original"
 PATH_DATABASE = "../Results/"
-CONFIGS = [proportional_config, naive_config]
+CONFIGS = [proportional_config, naive_config, lookahead_config]
 
 
 # Get the names of the circuits
