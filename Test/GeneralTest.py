@@ -24,6 +24,51 @@ def lookahead_config():
     return m_config
 
 
+def proportional_config_without_fuse():
+    m_config = Configuration()
+    m_config.strategy = Strategy.proportional
+    m_config.fuse_single_qubit_gates = False
+    return m_config
+
+
+def naive_config_without_fuse():
+    m_config = Configuration()
+    m_config.strategy = Strategy.naive
+    m_config.fuse_single_qubit_gates = False
+    return m_config
+
+
+def lookahead_config_without_fuse():
+    m_config = Configuration()
+    m_config.strategy = Strategy.lookahead
+    m_config.fuse_single_qubit_gates = False
+    return m_config
+
+
+def proportional_config_without_optimizations():
+    m_config = Configuration()
+    m_config.strategy = Strategy.proportional
+    m_config.fuse_single_qubit_gates = False
+    m_config.reconstruct_swaps = False
+    return m_config
+
+
+def naive_config_without_optimizations():
+    m_config = Configuration()
+    m_config.strategy = Strategy.naive
+    m_config.fuse_single_qubit_gates = False
+    m_config.reconstruct_swaps = False
+    return m_config
+
+
+def lookahead_config_without_optimizations():
+    m_config = Configuration()
+    m_config.strategy = Strategy.lookahead
+    m_config.fuse_single_qubit_gates = False
+    m_config.reconstruct_swaps = False
+    return m_config
+
+
 # Define constants
 COLUMNS_NAMES = ['circuit', 'proportional', 'naive', 'lookahead',
                  'nodes_proportional', 'nodes_naive', 'nodes_lookahead']
@@ -36,7 +81,10 @@ EXTENSION_MAP = {
 PATH_BASE = "../Circuits/"
 PATH_ORIGINAL = "original"
 PATH_DATABASE = "../Results/"
-CONFIGS = [proportional_config, naive_config, lookahead_config]
+CONFIGS = [naive_config, proportional_config, lookahead_config,
+           naive_config_without_fuse, proportional_config_without_fuse, lookahead_config_without_fuse,
+           naive_config_without_optimizations, proportional_config_without_optimizations,
+           lookahead_config_without_optimizations]
 
 
 # Get the names of the circuits
