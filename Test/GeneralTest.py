@@ -70,8 +70,11 @@ def lookahead_config_without_optimizations():
 
 
 # Define constants
-COLUMNS_NAMES = ['circuit', 'proportional', 'naive', 'lookahead',
-                 'nodes_proportional', 'nodes_naive', 'nodes_lookahead']
+COLUMNS_NAMES = ['circuit', 'naive', 'proportional', 'lookahead', 'naive_without_fuse', 'proportional_without_fuse',
+                 'lookahead_without_fuse', 'naive_without_optimizations', 'proportional_without_optimizations',
+                 'lookahead_without_optimizations', 'nodes_naive', 'nodes_proportional', 'nodes_lookahead',
+                 'nodes_naive_without_fuse', 'nodes_proportional_without_fuse', 'nodes_lookahead_without_fuse',
+                 'nodes_naive_optimizations', 'nodes_proportional_optimizations', 'nodes_lookahead_optimizations']
 PATH_TEST = ["transpiled", "remove1", "remove3"]
 EXTENSION_MAP = {
     "transpiled": "_transpiled.qasm",
